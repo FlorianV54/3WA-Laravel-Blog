@@ -1,0 +1,48 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    /*font-family: 'Lato';*/
+}
+
+.container {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.content {
+    /*text-align: center;*/
+    display: inline-block;
+}
+
+.title {
+    font-size: 96px;
+}
+
+
+
+/* FOOTER */
+.main-footer {
+  background-color: rgb(54,127,169);
+}
+body > div > footer > ul{
+  text-align: center;
+}
+body > div > footer > ul > li {
+  display: inline-block;
+  margin-right: 5%;
+}
+body > div > footer > ul > li > a {
+  color: #FFF;
+}
+body > div > footer > ul > li > a:hover{
+  color: #F39C12;
+  border-bottom: 1px solid #FFF;
+}
