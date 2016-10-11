@@ -46,13 +46,13 @@ MAIL_ENCRYPTION=null
 ```
 
 - **API Twitter**
+(créez votre propre app Twitter à l'adresse `https://apps.twitter.com/`)
 ```
 # Pour s'authentifier via Twitter sur la page de Login
 AUTH_TWITTER_CONSUMER_KEY=xxxxxxxxxxxxxxx
 AUTH_TWITTER_CONSUMER_SECRET_KEY=xxxxxxxxxxxxxxx
 CALLBACK_URL=http://localhost:8000/auth/twitter/callback
 ```
-> - créez votre propre app Twitter à l'adresse `https://apps.twitter.com/`
 ```
 # Pour l'affichage de vos tweets dans le Dashboard
 TWITTER_CONSUMER_KEY=xxxxxxxxxxxxxxx
@@ -60,22 +60,22 @@ TWITTER_CONSUMER_SECRET=xxxxxxxxxxxxxxx
 TWITTER_ACCESS_TOKEN=xxxxxxxxxxxxxxx
 TWITTER_ACCESS_TOKEN_SECRET=xxxxxxxxxxxxxxx
 ```
-> - créez votre propre app Twitter à l'adresse `https://apps.twitter.com/`
-> - dans le fichier `WelcomeController.php` modifiez la ligne ci-dessous avec votre propre login Twitter
+>- dans le fichier `WelcomeController.php` modifiez la ligne ci-dessous avec votre propre login Twitter
 ```
 $tweets = Twitter::getUserTimeline(['screen_name' => 'votre identifiant Twitter', 'count' => 4, 'format' => 'object']);
 ```
 
-- **API Facebook**
+- **API Facebook** 
+(créez votre propre app Facebook à l'adresse `https://developers.facebook.com/`)
 ```
+# Pour s'authentifier via Facebook sur la page de Login
 FACEBOOK_CLIENT_ID=xxxxxxxxxxxxxxx
 FACEBOOK_CLIENT_SECRET=xxxxxxxxxxxxxxx
 FACEBOOK_CALLBACK_URL=http://localhost:8000/auth/facebook/callback
 ```
-> - créez votre propre app Facebook à l'adresse `https://developers.facebook.com/`
 
 - **API Stripe**
-> - connectez-vous ou créez un compte à l'adresse `https://stripe.com/fr`, puis `Account Settings` et `API keys`
+(connectez-vous ou créez un compte à l'adresse `https://stripe.com/fr`)
 ```
 # Pour le paiement des articles (Test Secret Key)
 MY_PRIVATE_KEY_STRIPE=xxxxxxxxxxxxxxx
