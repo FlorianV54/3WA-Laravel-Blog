@@ -46,7 +46,7 @@ MAIL_ENCRYPTION=null
 ```
 
 - **API Twitter**
-(créez votre propre app Twitter à l'adresse `https://apps.twitter.com/`)
+(créez votre propre app Twitter à l'adresse [https://apps.twitter.com](https://apps.twitter.com/))
 ```
 # Pour s'authentifier via Twitter sur la page de Login
 AUTH_TWITTER_CONSUMER_KEY=xxxxxxxxxxxxxxx
@@ -66,7 +66,7 @@ $tweets = Twitter::getUserTimeline(['screen_name' => 'votre identifiant Twitter'
 ```
 
 - **API Facebook** 
-(créez votre propre app Facebook à l'adresse `https://developers.facebook.com/`)
+(créez votre propre app Facebook à l'adresse [https://developers.facebook.com](https://developers.facebook.com/))
 ```
 # Pour s'authentifier via Facebook sur la page de Login
 FACEBOOK_CLIENT_ID=xxxxxxxxxxxxxxx
