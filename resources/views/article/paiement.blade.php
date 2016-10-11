@@ -49,13 +49,6 @@
 
 @section('content')
 
-{{-- Message flash de success --}}
-@if (Session::has('success'))
-  <div class="alert alert-success">
-    <p>{{ Session::get('success') }}</p>
-  </div>
-@endif
-
 <section class="invoice">
   <div class="row">
     <div class="col-xs-12">
@@ -124,6 +117,14 @@
   <div class="row">
     <!-- accepted payments column -->
     <div class="col-xs-6">
+
+      {{-- Message flash de success --}}
+      @if (Session::has('success'))
+        <div class="alert alert-success">
+          <p>{{ Session::get('success') }}</p>
+        </div>
+      @endif
+
       <p class="lead">Méthode de paiement:</p>
       <img src="/img/credit/visa.png" alt="Visa">
       <img src="/img/credit/mastercard.png" alt="Mastercard">
@@ -176,7 +177,6 @@
     <div class="col-xs-6">
       <p class="lead"><?php $date = Carbon\Carbon::Now()->addWeeks(2)->diffForHumans() ?>
       Montant du : {{ $date }}</p>
-
       <div class="table-responsive">
         <table class="table">
           <tbody>
@@ -186,24 +186,24 @@
             </tr>
             <tr>
               <th>TVA (20%)</th>
-              <td>{{ $somme * 0.2 }}</td>
+              <td>{{ round(($somme  * 0.20), 2) }}€</td>
             </tr>
             <tr>
               <th>Total :</th>
-              <td>{{ $somme + $somme * 0.2 }}€</td>
+              <td>{{ round(($somme + $somme * 0.20), 2) }}€</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  <div class="row no-print">
+  {{-- <div class="row no-print">
     <div class="col-xs-12">
       <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
         <i class="fa fa-download"></i> Export PDF
       </button>
     </div>
-  </div>
+  </div> --}}
 </section>
 
 @endsection

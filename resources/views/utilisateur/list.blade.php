@@ -48,8 +48,14 @@
                 <tr>
                   <td><a href="{{ route('utilisateur/delete', [ "id" => $utilisateur->id]) }}"><i class="fa fa-trash-o"></i></a></td>
                   <td>{{ $utilisateur->id }}</td>
-                  <td><img src="{{ asset('images/'.$utilisateur->image) }}" class="img-responsive" width="50" height="50" /></td>
-                  <td>{{ $utilisateur->nom }} {{ $utilisateur->prenom }}</td>
+                  <td>
+                    @if(Session::has('LoginMethode') && (Session::get('LoginMethode') == 'twitter' || Session::get('LoginMethode') == 'facebook'))
+                      <img src="{{ $utilisateur->image }}" class="user-image img-responsive" alt="User Image" alt="User Image" width="50" height="50">
+                    @else
+                      <img src="{{ asset('images/'. $utilisateur->image) }}" class="user-image img-responsive" alt="User Image" width="50" height="50">
+                    @endif
+                  </td>
+                  <td>{{ $utilisateur->prenom }} {{ $utilisateur->nom }}</td>
                   <td>{{ $utilisateur->email }}</td>
                   <td>{{ $utilisateur->telephone }}</td>
                   <td>{{ $utilisateur->code_postal }}</td>

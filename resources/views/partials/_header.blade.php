@@ -48,7 +48,11 @@
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
-              <img src="{{ asset('images/'. Auth::user()->image) }}" alt="User Image">
+              @if(Session::has('LoginMethode') && (Session::get('LoginMethode') == 'twitter' || Session::get('LoginMethode') == 'facebook'))
+                <img src="{{ Auth::user()->image }}" class="user-image img-responsive" alt="User Image">
+              @else
+                <img src="{{ asset('images/'. Auth::user()->image) }}" class="user-image img-responsive" alt="User Image">
+              @endif
               <p>
                 {{ Auth::user()->prenom }} {{ Auth::user()->nom }}<br>
                 <small>Membre depuis le {{ Auth::user()->created_at->format('d/m/Y') }}</small>

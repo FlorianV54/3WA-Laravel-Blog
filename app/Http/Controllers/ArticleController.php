@@ -182,13 +182,12 @@ class ArticleController extends Controller {
   // Système de "paiement" via l'API Stripe
   public function paiement(Request $request){
 
-    // $somme => pour avoir le prix total des articles favoris + arrondi à 2 chiffres après virgule
+    // $somme => le prix total des articles favoris
     $somme = Article::where('favoris', '=', '1')->sum('prix');
+    // $somme => "Sous-total" arrondi à 2 chiffres après virgule
     $somme = round($somme, 2);
-
-    return view('article/paiement', [
-      "somme" => $somme
-    ]);
+    // $sommeTotal => "Sous-total" + TVA de 20% (le tout arrondi à 2 chiffres après virgule)
+    $sommeTotal = round(($somme + $somme * 0.20), 2);
 
     // Si on a soumis le formulaire
     if($request->isMethod('post')){
@@ -202,15 +201,21 @@ class ArticleController extends Controller {
       ));
       // créer une charge
       \Stripe\Charge::create([
-        "amount" => ($somme + $somme  * 0.20) * 100, // En centimes !
+        "amount" => $sommeTotal * 100, // En centimes !!!
         "currency" => "eur",
         "customer" => $customer->id
       ]);
 
       return redirect()->route('article/paiement') // redirige vers la page paiement
-        ->with('success', "Vous avez bien été débité de ".$somme + $somme  * 0.20 ."€");
+        ->with('success', "Vous avez bien été débité de ".$sommeTotal ."€");
     }
+
+    return view('article/paiement', [
+      "somme" => $somme
+    ]);
+
   }
+
 
 
 }

@@ -5,7 +5,11 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ asset('images/'. Auth::user()->image) }}" class="img-circle" alt="User Image">
+        @if(Session::has('LoginMethode') && (Session::get('LoginMethode') == 'twitter' || Session::get('LoginMethode') == 'facebook'))
+          <img src="{{ Auth::user()->image }}" class="user-image img-circle" alt="User Image">
+        @else
+          <img src="{{ asset('images/'. Auth::user()->image) }}" class="user-image img-circle" alt="User Image">
+        @endif
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</p>

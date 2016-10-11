@@ -19,7 +19,7 @@ Back-office d'administration d'un Blog (créé durant ma formation à la [3W Aca
 - Thème utilisé [AdminLTE-2.3.6 design](https://almsaeedstudio.com/preview)
 
 ## Installation
-- La base de données `blog.sql` est stocké à la racine du projet dans le dossier `\_BDD`
+- La base de données `blog.sql` est stocké dans le dossier `\database\_BDD`
 - Toutes les dépendances nécessaires sont répertoriées dans le fichier `composer.json`
 ```
 composer install
@@ -75,7 +75,7 @@ FACEBOOK_CALLBACK_URL=http://localhost:8000/auth/facebook/callback
 > - créez votre propre app Facebook à l'adresse `https://developers.facebook.com/`
 
 - **API Stripe**
-> - connectez-vous ou créez un compte à l'adresse `https://stripe.com/fr`, puis dans les paramètres de votre compte  `Account Settings` et `API keys`
+> - connectez-vous ou créez un compte à l'adresse `https://stripe.com/fr`, puis `Account Settings` et `API keys`
 ```
 # Pour le paiement des articles (Test Secret Key)
 MY_PRIVATE_KEY_STRIPE=xxxxxxxxxxxxxxx
@@ -94,6 +94,7 @@ C:\xxxxx\yyyyyy\zzzzz\blog> php artisan serve
 - login `test@test.com`
 - password `test123`
 
+![Login](/public/images/login.png)
 
 ## Auteurs
 * **Florian VARENNE** - [FlorianV54](https://github.com/FlorianV54)

@@ -49,6 +49,7 @@ class AuthController extends Controller
     $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
   }
 
+  // "custom" Logout (si on a été connecté via un compte Facebook ou Twitter)
   public function logout() {
     Session::forget('LoginMethode');
     Auth::logout();
