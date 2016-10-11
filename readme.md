@@ -82,7 +82,7 @@ MY_PRIVATE_KEY_STRIPE=xxxxxxxxxxxxxxx
 ```
 > - dans le fichier `paiement.blade.php` modifiez la ligne ci-dessous avec votre propre clé  `Test Publishable Key`
 ```
-Stripe.setPublishableKey('votre Test Publishable Key ');
+Stripe.setPublishableKey('votre Test Publishable Key');
 ```
 
 ## Connexion
